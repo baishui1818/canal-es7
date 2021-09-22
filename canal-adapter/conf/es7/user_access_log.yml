@@ -1,0 +1,14 @@
+dataSourceKey: defaultDS
+destination: crmeb
+groupId: g1
+#outerAdapterKey: db1Key 
+esMapping:
+  _index: user_access_log
+  _id: id
+#  upsert: true
+#  pk: id
+  sql: "select id, uid, action, action_id, note, add_time from eb_user_access_log"
+#  objFields:
+#    _labels: array:;
+#  etlCondition: "where a.c_time>={}"
+  commitBatch: 3000

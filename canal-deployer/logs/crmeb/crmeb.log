@@ -1,0 +1,28 @@
+2021-09-22 11:35:23.433 [destination = crmeb , address = /106.55.163.181:3306 , EventParser] ERROR c.a.o.canal.parse.inbound.mysql.dbsync.DirectLogFetcher - Socket timeout expired, closing connection
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124) ~[canal.parse.driver-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170) ~[canal.parse-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77) ~[canal.parse-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:238) [canal.parse-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:262) [canal.parse-1.1.5.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_272]
+2021-09-22 11:35:23.462 [destination = crmeb , address = /106.55.163.181:3306 , EventParser] ERROR c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - dump address 106.55.163.181/106.55.163.181:3306 has an error, retrying. caused by 
+java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124) ~[canal.parse.driver-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170) ~[canal.parse-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77) ~[canal.parse-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:238) ~[canal.parse-1.1.5.jar:na]
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:262) ~[canal.parse-1.1.5.jar:na]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_272]
+2021-09-22 11:35:23.462 [destination = crmeb , address = /106.55.163.181:3306 , EventParser] ERROR com.alibaba.otter.canal.common.alarm.LogAlarmHandler - destination:crmeb[java.net.SocketTimeoutException: Timeout occurred, failed to read total 4 bytes in 25000 milliseconds, actual read only 0 bytes
+	at com.alibaba.otter.canal.parse.driver.mysql.socket.BioSocketChannel.read(BioSocketChannel.java:124)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch0(DirectLogFetcher.java:170)
+	at com.alibaba.otter.canal.parse.inbound.mysql.dbsync.DirectLogFetcher.fetch(DirectLogFetcher.java:77)
+	at com.alibaba.otter.canal.parse.inbound.mysql.MysqlConnection.dump(MysqlConnection.java:238)
+	at com.alibaba.otter.canal.parse.inbound.AbstractEventParser$1.run(AbstractEventParser.java:262)
+	at java.lang.Thread.run(Thread.java:748)
+]
+2021-09-22 11:35:44.949 [destination = crmeb , address = /106.55.163.181:3306 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> begin to find start position, it will be long time for reset or first position
+2021-09-22 11:35:44.949 [destination = crmeb , address = /106.55.163.181:3306 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - prepare to find start position just last position
+ {"identity":{"slaveId":-1,"sourceAddress":{"address":"106.55.163.181","port":3306}},"postion":{"gtid":"","included":false,"journalName":"mysql-bin.000001","position":821039459,"serverId":1,"timestamp":1632281653000}}
+2021-09-22 11:35:45.046 [destination = crmeb , address = /106.55.163.181:3306 , EventParser] WARN  c.a.o.c.p.inbound.mysql.rds.RdsBinlogEventParserProxy - ---> find start position successfully, EntryPosition[included=false,journalName=mysql-bin.000001,position=821039459,serverId=1,gtid=,timestamp=1632281653000] cost : 97ms , the next step is binlog dump
